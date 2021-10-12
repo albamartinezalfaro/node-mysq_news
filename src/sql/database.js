@@ -1,19 +1,9 @@
-const app = require('./src/config/server');
-const mysql = require('mysql');
-
-require('./src/app/routes/news')(app);
-
-// Server
-app.listen(app.get('port'), () => {
-    console.log('Server Started on port ', app.get('port'));
-});
-
 // Create connnection
 const db = mysql.createConnection({
-    host: 'localhost'
-    , user: 'root'
-    , password: ''
-    , database: 'news_portal'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'news_portal'
 });
 
 // Connect to MySQL
@@ -21,6 +11,7 @@ db.connect(err => {
     if(err) {
         throw err;
     }
+    console.log("MySQL Connected");
 });
 
 //const app = express();
